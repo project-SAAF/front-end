@@ -7,13 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { ApplicantComponent } from './applicant/applicant.component';
+import { AddApplicantComponent } from './add-applicant/add-applicant.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentComponent,
     AttendanceComponent,
-    ApplicantComponent
+    ApplicantComponent,
+    AddApplicantComponent
   ],
   imports: [
     BrowserModule,

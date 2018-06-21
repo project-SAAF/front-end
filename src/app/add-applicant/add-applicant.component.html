@@ -1,0 +1,184 @@
+<div class="card">
+    <div class="card-body">
+      <h4 class="card-text">Information</h4>
+      <div class="row">
+        <div class="col-2 text-right">
+          <h5>Name</h5>
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" [(ngModel)]="applicant.name">
+        </div>
+        <div class="col-1 text-right">
+          <h5>CPF</h5>
+        </div>
+        <div class="col-3">
+          <input type="text" class="form-control" [(ngModel)]="applicant.cpf">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-2 text-right">
+          <h5>Born Date</h5>
+        </div>
+        <div class="col-2">
+          <input type="text" class="form-control" [(ngModel)]="applicant.dtNasc">
+        </div>
+        <div class="col-2 text-right">
+          <h5>Begin Date</h5>
+        </div>
+        <div class="col-2">
+          <input type="text" class="form-control" [(ngModel)]="applicant.dtCad">
+        </div>
+        <div class="col-2 text-right">
+          <h5>RG</h5>
+        </div>
+        <div class="col-2">
+          <input type="text" class="form-control" [(ngModel)]="applicant.rg">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-2 text-right">
+          <h5>Email</h5>
+        </div>
+        <div class="col-10">
+          <input type="text" class="form-control" [(ngModel)]="applicant.email">
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-text">Address</h4>
+      <div class="row" *ngFor="let address of applicant.address; let i = index">
+
+        <div class="col-12">
+          <hr/>
+          <div class="row">
+            <br>
+            <div class="col-4">
+              <div class="row">
+                <div class="col-4 text-right">
+                  <h5>Cep</h5>
+                </div>
+                <div class="col-8">
+                  <input type="text" class="form-control" [(ngModel)]="applicant.address[i].cep">
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="row">
+                <div class="col-6 text-right">
+                  <h5>Type</h5>
+                </div>
+                <div class="col-6">
+                  <input type="text" class="form-control" [(ngModel)]="applicant.address[i].type">
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="col-2 text-right">
+                  <h5>Address</h5>
+                </div>
+                <div class="col-10">
+                  <input type="text" class="form-control" [(ngModel)]="applicant.address[i].address">
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-2">
+              <div class="row">
+                <div class="col-8 text-right">
+                  <h5>State</h5>
+                </div>
+                <div class="col-4">
+                  <input type="text" class="form-control" [(ngModel)]="applicant.address[i].state">
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="row">
+                <div class="col-2 text-right">
+                  <h5>City</h5>
+                </div>
+                <div class="col-10">
+                  <input type="text" class="form-control" [(ngModel)]="applicant.address[i].city">
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="row">
+                <div class="col-4 text-right">
+                  <h5>Neighborhood</h5>
+                </div>
+                <div class="col-8">
+                  <input type="text" class="form-control" [(ngModel)]="applicant.address[i].neighborhood">
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="row" *ngIf="verifyIndexAddress(i)">
+                <div class="col-12">
+                  <input type="button" value="ADD NEW ADDRESS" class="btn btn-primary form-control" (click)="addAddress()">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-text">Telephone</h4>
+      <div class="row" *ngFor="let telephone of applicant.telephones; let i = index">
+        <div class="col-12">
+          <hr/>
+          <div class="row">
+            <div class="col-4">
+              <div class="row">
+                <div class="col-2 text-right">
+                  <h5>Type</h5>
+                </div>
+                <div class="col-10">
+                  <input type="text" class="form-control" [(ngModel)]="applicant.telephones[i].type">
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="col-2 text-right">
+                  <h5>Number</h5>
+                </div>
+                <div class="col-10">
+                  <input type="text" class="form-control" [(ngModel)]="applicant.telephones[i].number">
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="row" *ngIf="verifyIndexTelephone(i)">
+                <div class="col-12">
+                  <input type="button" value="ADD NEW TELEPHONE" class="btn btn-primary form-control" (click)="addTelephone()">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-4 offset-4 text-right">
+      <input type="button" value="INSERT" class="btn btn-primary form-control" (click)="insertStudent()">
+    </div>
+  </div>
+  <hr/>

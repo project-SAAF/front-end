@@ -10,50 +10,15 @@ import { Address } from '../../model/address';
 })
 export class ApplicantComponent implements OnInit {
 
-  applicant: Applicant;
+  applicants: Array<Applicant>;
 
   constructor() { }
 
   ngOnInit() {
-
-    this.applicant = new Applicant();
-    this.applicant.telephones = new Array<Telephone>();
-    this.applicant.address = new Array<Address>();
-
-    this.addAddress();
-    this.addTelephone();
+    this.applicants = new Array<Applicant>();
   }
 
-  public verifyIndexAddress(i) {
-    if (i != undefined) {
-      if (parseInt(i) + 1 == this.applicant.address.length) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
+  public insertApplicant() {
+    alert();
   }
-
-  public verifyIndexTelephone(i) {
-    if (i != undefined) {
-      if (parseInt(i) + 1 == this.applicant.telephones.length) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
-  }
-
-  public addTelephone() {
-    this.applicant.telephones.push(new Telephone());
-  }
-
-  public addAddress() {
-    this.applicant.address.push(new Address());
-  }
-
 }
